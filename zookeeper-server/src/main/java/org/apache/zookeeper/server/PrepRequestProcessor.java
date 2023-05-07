@@ -114,10 +114,7 @@ public class PrepRequestProcessor extends ZooKeeperCriticalThread implements Req
     }
 
     public PrepRequestProcessor(ZooKeeperServer zks, RequestProcessor nextProcessor) {
-        super(
-            "ProcessThread(sid:" + zks.getServerId()
-            + " cport:" + zks.getClientPort()
-            + "):", zks.getZooKeeperServerListener());
+        super("ProcessThread(sid:" + zks.getServerId() + " cport:" + zks.getClientPort() + "):", zks.getZooKeeperServerListener());
         this.nextProcessor = nextProcessor;
         this.zks = zks;
         this.digestEnabled = ZooKeeperServer.isDigestEnabled();

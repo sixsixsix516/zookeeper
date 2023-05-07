@@ -61,6 +61,8 @@ public interface HostProvider {
      * Notify the HostProvider of a successful connection.
      *
      * The HostProvider may use this notification to reset it's inner state.
+     *
+     * 回调方法，如果客户端与服务器成功创建连接，就通过调用这个方法通知 HostProvider
      */
     void onConnected();
 

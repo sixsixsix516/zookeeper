@@ -21,34 +21,38 @@ package org.apache.zookeeper.common;
 import java.util.Date;
 
 public class Time {
-
+    
     /**
-     * Returns time in milliseconds as does System.currentTimeMillis(),
-     * but uses elapsed time from an arbitrary epoch more like System.nanoTime().
-     * The difference is that if somebody changes the system clock,
-     * Time.currentElapsedTime will change but nanoTime won't. On the other hand,
-     * all of ZK assumes that time is measured in milliseconds.
+     * Returns time in milliseconds as does System.currentTimeMillis(), but uses elapsed time from an arbitrary epoch
+     * more like System.nanoTime(). The difference is that if somebody changes the system clock, Time.currentElapsedTime
+     * will change but nanoTime won't. On the other hand, all of ZK assumes that time is measured in milliseconds.
+     *
      * @return The time in milliseconds from some arbitrary point in time.
+     * <p>
+     * 防止人改变时钟，此值不会影响
      */
     public static long currentElapsedTime() {
         return System.nanoTime() / 1000000;
+        //        return 165481649;
     }
-
+    
     /**
      * Explicitly returns system dependent current wall time.
+     *
      * @return Current time in msec.
      */
     public static long currentWallTime() {
         return System.currentTimeMillis();
     }
-
+    
     /**
      * This is to convert the elapsedTime to a Date.
+     *
      * @return A date object indicated by the elapsedTime.
      */
     public static Date elapsedTimeToDate(long elapsedTime) {
         long wallTime = currentWallTime() + elapsedTime - currentElapsedTime();
         return new Date(wallTime);
     }
-
+    
 }

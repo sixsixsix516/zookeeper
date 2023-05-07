@@ -44,6 +44,11 @@ import org.slf4j.LoggerFactory;
  * This code has been moved out of ClientCnxn so that a Netty implementation can
  * be provided as an alternative to the NIO socket code.
  *
+ * Client Cnxn 底层 IO 处理器
+ * 底层 Socket 通信层，定义了底层 Socket 通信的接口
+ *
+ * 默认实现是 Java 原生 NIO 接口，其核心 doIO 逻辑：主要负责对请求的发送和响应接收过程
+ *
  */
 abstract class ClientCnxnSocket {
 
@@ -125,7 +130,10 @@ abstract class ClientCnxnSocket {
         }
         incomingBuffer = ByteBuffer.allocate(len);
     }
-
+    
+    /**
+     * 读取连接结果
+     */
     void readConnectResult() throws IOException {
         if (LOG.isTraceEnabled()) {
             StringBuilder buf = new StringBuilder("0x[");

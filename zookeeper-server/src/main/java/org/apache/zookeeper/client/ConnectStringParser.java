@@ -38,7 +38,12 @@ import org.apache.zookeeper.common.PathUtils;
 public final class ConnectStringParser {
 
     private static final int DEFAULT_PORT = 2181;
-
+    
+    /**
+     * Chroot 客户端隔离命名空间
+     * 3.2.0 版本及其之后，该特性允许客户端为自己设置一个命名空间，该客户端对服务器的任何操作，都将会被限制在其自己的命名空间下
+     * 通过 connectString 方式设置 192.168.0.1:2181/test
+     */
     private final String chrootPath;
 
     private final ArrayList<InetSocketAddress> serverAddresses = new ArrayList<>();
