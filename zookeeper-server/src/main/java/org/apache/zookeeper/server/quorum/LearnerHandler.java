@@ -62,6 +62,8 @@ import org.slf4j.LoggerFactory;
  * There will be an instance of this class created by the Leader for each
  * learner. All communication with a learner is handled by this
  * class.
+ *
+ * Zookeeper 集群中 learner 服务器的管理者
  */
 public class LearnerHandler extends ZooKeeperThread {
 
@@ -1179,5 +1181,4 @@ public class LearnerHandler extends ZooKeeperThread {
         } catch (IOException e) {
             LOG.warn("Ignoring error closing connection to learner {}", getSid(), e);
         }
-    }
-}
+ 

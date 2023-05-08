@@ -34,6 +34,8 @@ import org.slf4j.LoggerFactory;
 /**
  * This RequestProcessor forwards any requests that modify the state of the
  * system to the Leader.
+ *
+ * Follwer 的第一个请求处理器：识别出，如果是事务请求就转发给 Leader，否则就处理
  */
 public class FollowerRequestProcessor extends ZooKeeperCriticalThread implements RequestProcessor {
 

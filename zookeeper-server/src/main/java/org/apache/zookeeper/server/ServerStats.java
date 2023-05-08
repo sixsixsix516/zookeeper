@@ -27,12 +27,22 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Basic Server Statistics
+ *
+ * 运行时的统计器，包含了最基本的运行时信息
  */
 public class ServerStats {
 
     private static final Logger LOG = LoggerFactory.getLogger(ServerStats.class);
 
+    /**
+     * 从 ZooKeeper 启动开始，或是最近一次重置服务端统计信息之后
+     * 服务端向客户端发送的响应包次数
+     */
     private final AtomicLong packetsSent = new AtomicLong();
+    /**
+     * 从 ZooKeeper 启动开始，或是最近一次重置服务端统计信息之后
+     * 服务端接收到的来自客户端的请求包次数
+     */
     private final AtomicLong packetsReceived = new AtomicLong();
 
     private final AvgMinMaxCounter requestLatency = new AvgMinMaxCounter("request_latency");

@@ -101,6 +101,9 @@ import org.slf4j.LoggerFactory;
  * This class implements a simple standalone ZooKeeperServer. It sets up the
  * following chain of RequestProcessors to process requests:
  * PrepRequestProcessor -&gt; SyncRequestProcessor -&gt; FinalRequestProcessor
+ *
+ *
+ * 单机版 Zookeeper 服务端最最核心的类
  */
 public class ZooKeeperServer implements SessionExpirer, ServerStats.Provider {
 

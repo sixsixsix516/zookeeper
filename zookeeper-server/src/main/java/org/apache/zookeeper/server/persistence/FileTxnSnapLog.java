@@ -48,6 +48,8 @@ import org.slf4j.LoggerFactory;
  * above the implementations
  * of txnlog and snapshot
  * classes
+ *
+ * Zookeeper 上层服务器和底层数据存储之间的对接层
  */
 public class FileTxnSnapLog {
 

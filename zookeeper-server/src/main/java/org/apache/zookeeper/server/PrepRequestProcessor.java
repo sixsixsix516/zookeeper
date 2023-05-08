@@ -90,6 +90,10 @@ import org.slf4j.LoggerFactory;
  * state of the system. It counts on ZooKeeperServer to update
  * outstandingRequests, so that it can take into account transactions that are
  * in the queue to be applied when generating a transaction.
+ *
+ * Leader 服务器的请求预处理器
+ *
+ * 识别出客户端的事务请求，对其进行一系列的处理：创建请求事务头、事务体、会话检查、ACL 检查、版本检查等
  */
 public class PrepRequestProcessor extends ZooKeeperCriticalThread implements RequestProcessor {
 

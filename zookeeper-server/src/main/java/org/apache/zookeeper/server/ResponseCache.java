@@ -25,7 +25,6 @@ import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("serial")
 public class ResponseCache {
     private static final Logger LOG = LoggerFactory.getLogger(ResponseCache.class);
 

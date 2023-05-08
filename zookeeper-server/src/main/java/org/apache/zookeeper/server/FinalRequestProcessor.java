@@ -93,6 +93,8 @@ import org.slf4j.LoggerFactory;
  *
  * This RequestProcessor counts on ZooKeeperServer to populate the
  * outstandingRequests member of ZooKeeperServer.
+ *
+ * 最后一个请求处理器，用于收尾工作
  */
 public class FinalRequestProcessor implements RequestProcessor {
 

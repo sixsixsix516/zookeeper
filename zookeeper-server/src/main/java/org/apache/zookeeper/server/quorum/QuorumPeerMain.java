@@ -126,6 +126,7 @@ public class QuorumPeerMain {
         }
 
         // Start and schedule the the purge task
+        // 创建并启动 历史文件清理器（对事务日志、快照数据文件进行定时清理）
         DatadirCleanupManager purgeMgr = new DatadirCleanupManager(
             config.getDataDir(),
             config.getDataLogDir(),
@@ -134,8 +135,11 @@ public class QuorumPeerMain {
         purgeMgr.start();
 
         if (args.length == 1 && config.isDistributed()) {
+            // 集群模式
             runFromConfig(config);
+
         } else {
+            // 单机模式
             LOG.warn("Either no config or no quorum defined in config, running in standalone mode");
             // there is only server in the quorum -- run as standalone
             ZooKeeperServerMain.main(args);

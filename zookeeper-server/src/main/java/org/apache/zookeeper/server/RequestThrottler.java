@@ -252,7 +252,7 @@ public class RequestThrottler extends ZooKeeperCriticalThread {
     }
 
     public void shutdown() {
-        // Try to shutdown gracefully
+        // Try to shut down gracefully
         LOG.info("Shutting down");
         stopping = true;
         submittedRequests.add(Request.requestOfDeath);

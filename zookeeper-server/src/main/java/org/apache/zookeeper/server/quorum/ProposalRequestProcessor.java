@@ -29,6 +29,8 @@ import org.slf4j.LoggerFactory;
 /**
  * This RequestProcessor simply forwards requests to an AckRequestProcessor and
  * SyncRequestProcessor.
+ *
+ * Leader 服务器的事务投票处理器，也是 leader 服务器事务处理流程的发起者
  */
 public class ProposalRequestProcessor implements RequestProcessor {
 
